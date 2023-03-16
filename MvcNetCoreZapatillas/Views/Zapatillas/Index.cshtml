@@ -1,0 +1,16 @@
+﻿@model List<Zapatilla>
+
+<ul class="list-group">
+    @foreach (var item in Model)
+    {
+        <a class="nav-link text-dark" asp-area="" asp-controller="Zapatillas" asp-action="Detalles" asp-route-id="@item.IdProducto">
+        <li class="list-group-item bg-danger">@item.Nombre</li>
+        </a>
+    }
+    @foreach (var item in Model)
+    {
+                <a class="nav-link text-dark" asp-area="" asp-controller="Zapatillas" asp-action="Detalles" asp-route-id="@item.IdProducto">
+            <li class="list-group-item bg-success">@item.Nombre</li>
+            </a>
+    }
+</ul>

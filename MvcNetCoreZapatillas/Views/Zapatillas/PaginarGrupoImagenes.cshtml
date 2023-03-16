@@ -1,0 +1,32 @@
+﻿@model List<ImagenZapatilla>
+
+@{
+    int numeroregistros = (int)ViewData["REGISTROS"];
+    int numeropagina = 1;
+}
+
+@{
+    ViewData["Title"] = "PaginarGrupoEmpleados";
+}
+
+<h1>Paginar grupo Imagenes</h1>
+
+<ul class="list-group list-group-horizontal">
+    @for (int i = 1; i <= numeroregistros; i += 3)
+    {
+        <li class="list-group-item list-group-item-warning">
+            <a asp-controller="Zapatillas"
+           asp-action="PaginarGrupoImagenes"
+           asp-route-posicion="@i">
+                Página @numeropagina
+            </a>
+        </li>
+        numeropagina += 1;
+    }
+</ul>
+
+
+        @foreach (var item in Model)
+        {
+            <img width="150px" src="@item.Imagen"/>
+        }
